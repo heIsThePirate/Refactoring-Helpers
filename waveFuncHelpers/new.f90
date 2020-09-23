@@ -109,9 +109,8 @@ DO ifile=0,filen
 
 	rho = (ABS(psi))**2
 
-	OPEN(UNIT=1,FILE='rho/rho'//TRIM(ADJUSTL(fnn))//'.dat',&
-FORM='UNFORMATTED', status='UNKNOWN', IOSTAT=ios)
-	WRITE(1) ((rho(i1,i2),i1=1,Nx),i2=1,Ny)
+	OPEN(UNIT=1,FILE='./rho/rho'//TRIM(ADJUSTL(fnn))//'.dat',status='NEW')
+	WRITE(1, *) ((rho(i1,i2),i1=1,Nx),i2=1,Ny)
 	CLOSE(1)
 
 ENDDO
